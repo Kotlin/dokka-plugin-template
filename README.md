@@ -7,7 +7,7 @@ This repository provides a template for creating [Dokka](https://github.com/Kotl
 
 ### Getting started
 
-Before writing a plugin it might be beneficial to spend 5 minutes reading our [developer guide](https://kotlin.github.io/dokka/1.4.10.2/developer_guide/introduction/) to have a basic idea about the data model and system architecture.
+Before writing a plugin it might be beneficial to spend 5 minutes reading our [developer guide](https://kotlin.github.io/dokka/1.5.0/developer_guide/introduction/) to have a basic idea about the data model and system architecture.
 If some you miss some information or something is unclear please let us know on [community slack](https://kotlinlang.slack.com/archives/C0F4UNJET) or via [github issue](https://github.com/Kotlin/dokka/issues).
 
 ### Structure
@@ -69,8 +69,8 @@ Loaded: [
 
 ### Testing
 
-This project includes a test dependency on `dokka-test-api` that allows for easy testing. 
-We highly encourage for you to extend tests classes with `AbstractCoreTest()` which allows you to write kotlin or java code
+This project includes a test dependency on `dokka-test-api` and `dokka-base-test-utils` that allows for easy testing. 
+We highly encourage for you to extend tests classes with `BaseAbstractTest()` which allows you to write kotlin or java code
 in your tests without a need to provide external files.
 This way the tests are much cleaner and easier to reason about.
 
@@ -120,4 +120,4 @@ Please follow the [OSSRH guide](https://central.sonatype.org/pages/ossrh-guide.h
 Finally, the publication can be started with `./gradlew publish` command
 
 ### Final words
-After creating a plugin please consider sharing it with the community on [official Dokka plugins list](https://kotlin.github.io/dokka/1.4.10.2/community/plugins-list/)
+After creating a plugin please consider sharing it with the community on [official Dokka plugins list](https://kotlin.github.io/dokka/1.5.0/community/plugins-list/)
