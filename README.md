@@ -45,7 +45,7 @@ This repository contains a basic setup for publishing artefacts to that reposito
 In order to do it use `publishToMavenLocal` task. 
 
 After that you will need a sample project to test on.
-Kotlin has a lot of sample projects to choose from eg: [dokka-gradle-example](https://github.com/Kotlin/kotlin-examples/tree/master/gradle/dokka/dokka-gradle-example)
+Kotlin has a lot of sample projects to choose from eg: [dokka-gradle-example](https://github.com/Kotlin/dokka/tree/master/examples)
 
 In order to apply the plugin you need to add it to project dependencies:
 ```kotlin
