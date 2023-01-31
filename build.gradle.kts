@@ -2,8 +2,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.net.URI
 
 plugins {
-    kotlin("jvm") version "1.6.20"
-    id("org.jetbrains.dokka") version "1.6.20" // Used to create a javadoc jar
+    kotlin("jvm") version "1.7.20"
+    id("org.jetbrains.dokka") version "1.7.20" // Used to create a javadoc jar
     `maven-publish`
     signing
 }
