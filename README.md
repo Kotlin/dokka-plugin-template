@@ -7,7 +7,7 @@ This repository provides a template for creating [Dokka](https://github.com/Kotl
 
 ### Getting started
 
-Before writing a plugin it might be beneficial to spend 5 minutes reading our [developer guide](https://kotlin.github.io/dokka/1.7.20/developer_guide/introduction/) to have a basic idea about the data model and system architecture.
+Before writing a plugin it might be beneficial to spend 5 minutes reading our [developer guide](https://kotlin.github.io/dokka/1.8.10/developer_guide/introduction/) to have a basic idea about the data model and system architecture.
 If some you miss some information or something is unclear please let us know on [community slack](https://kotlinlang.slack.com/archives/C0F4UNJET) or via [github issue](https://github.com/Kotlin/dokka/issues).
 
 ### Structure
@@ -120,4 +120,4 @@ Please follow the [OSSRH guide](https://central.sonatype.org/pages/ossrh-guide.h
 Finally, the publication can be started with `./gradlew publish` command
 
 ### Final words
-After creating a plugin please consider sharing it with the community on [official Dokka plugins list](https://kotlin.github.io/dokka/1.7.20/community/plugins-list/)
+After creating a plugin please consider sharing it with the community on [official Dokka plugins list](https://kotlin.github.io/dokka/1.8.10/community/plugins-list/)
