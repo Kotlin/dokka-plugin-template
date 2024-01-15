@@ -1,9 +1,6 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import java.net.URI
-
 plugins {
-    kotlin("jvm") version "1.8.10"
-    id("org.jetbrains.dokka") version "1.8.10" // Used to create a javadoc jar
+    kotlin("jvm") version "1.9.10"
+    id("org.jetbrains.dokka") version "1.9.10" // Used to create a javadoc jar
     `maven-publish`
     signing
 }
@@ -13,35 +10,29 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-    jcenter()
 }
 
 val dokkaVersion: String by project
 dependencies {
-    implementation(kotlin("stdlib"))
     compileOnly("org.jetbrains.dokka:dokka-core:$dokkaVersion")
     implementation("org.jetbrains.dokka:dokka-base:$dokkaVersion")
 
-    testImplementation(kotlin("test-junit"))
+    testImplementation(kotlin("test"))
     testImplementation("org.jetbrains.dokka:dokka-test-api:$dokkaVersion")
     testImplementation("org.jetbrains.dokka:dokka-base-test-utils:$dokkaVersion")
 }
 
-val dokkaOutputDir = "$buildDir/dokka"
+kotlin {
+    jvmToolchain(8)
+}
 
-tasks {
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
-    }
-    dokkaHtml {
-        outputDirectory.set(file(dokkaOutputDir))
-    }
+tasks.dokkaHtml {
+    outputDirectory.set(layout.buildDirectory.dir("dokka"))
 }
 
 val javadocJar by tasks.registering(Jar::class) {
-    dependsOn(tasks.dokkaHtml)
     archiveClassifier.set("javadoc")
-    from(dokkaOutputDir)
+    from(tasks.dokkaHtml)
 }
 
 java {
@@ -53,7 +44,7 @@ publishing {
         val dokkaTemplatePlugin by creating(MavenPublication::class) {
             artifactId = project.name
             from(components["java"])
-            artifact(javadocJar.get())
+            artifact(javadocJar)
 
             pom {
                 name.set("Dokka template plugin")
@@ -63,7 +54,7 @@ publishing {
                 licenses {
                     license {
                         name.set("The Apache Software License, Version 2.0")
-                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
                         distribution.set("repo")
                     }
                 }
@@ -73,7 +64,7 @@ publishing {
                         id.set("JetBrains")
                         name.set("JetBrains Team")
                         organization.set("JetBrains")
-                        organizationUrl.set("http://www.jetbrains.com")
+                        organizationUrl.set("https://www.jetbrains.com")
                     }
                 }
 
@@ -87,8 +78,7 @@ publishing {
     }
 
     repositories {
-        maven {
-            url = URI("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+        maven("https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
             credentials {
                 username = System.getenv("SONATYPE_USER")
                 password = System.getenv("SONATYPE_PASSWORD")

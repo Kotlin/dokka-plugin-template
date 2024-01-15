@@ -1,8 +1,8 @@
 package template
 
-import junit.framework.Assert.assertNotNull
 import org.jetbrains.dokka.base.testApi.testRunner.BaseAbstractTest
-import org.junit.Test
+import kotlin.test.Test
+import kotlin.test.assertNotNull
 
 class MyAwesomePluginTest : BaseAbstractTest() {
     private val configuration = dokkaConfiguration {
