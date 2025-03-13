@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "1.9.10"
-    id("org.jetbrains.dokka") version "1.9.10" // Used to create a javadoc jar
+    kotlin("jvm") version "2.0.20"
+    id("org.jetbrains.dokka") version "2.0.0" // Used to create a javadoc jar
     `maven-publish`
     signing
 }
