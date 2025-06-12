@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "1.9.10"
-    id("org.jetbrains.dokka") version "1.9.10" // Used to create a javadoc jar
+    kotlin("jvm") version "2.0.21"
+    id("org.jetbrains.dokka") version "2.0.0" // Used to create a javadoc jar
     `maven-publish`
     signing
 }
@@ -20,6 +20,7 @@ dependencies {
     testImplementation(kotlin("test"))
     testImplementation("org.jetbrains.dokka:dokka-test-api:$dokkaVersion")
     testImplementation("org.jetbrains.dokka:dokka-base-test-utils:$dokkaVersion")
+    testImplementation("org.jetbrains.dokka:analysis-kotlin-symbols:$dokkaVersion")
 }
 
 kotlin {
